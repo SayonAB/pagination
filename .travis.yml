@@ -1,0 +1,15 @@
+language: go
+
+go:
+  - 1.4
+  - tip
+
+before_install:
+  - sudo pip install codecov
+  - go get golang.org/x/tools/cmd/cover
+
+script:
+  - go test -coverprofile=coverage.txt -covermode=count
+
+after_success:
+  - codecov
