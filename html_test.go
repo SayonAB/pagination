@@ -7,7 +7,7 @@ import (
 	"github.com/PuerkitoBio/goquery"
 )
 
-func assertHasHtmlElements(t *testing.T, html *goquery.Document, selector string, num int) {
+func assertHasHTMLElements(t *testing.T, html *goquery.Document, selector string, num int) {
 	got := html.Find(selector)
 	if got.Length() != num {
 		t.Errorf("Expected to find %d html elements (%s) but found %d", num, selector, got.Length())
@@ -22,10 +22,10 @@ func Test_Render(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	assertHasHtmlElements(t, doc, ".pagination-list", 1)
-	assertHasHtmlElements(t, doc, ".pagination-item-special", 2)
-	assertHasHtmlElements(t, doc, ".pagination-link", 2+2) // Previous and next + 2 pages (1 and 2)
-	assertHasHtmlElements(t, doc, ".pagination-current", 1)
+	assertHasHTMLElements(t, doc, ".pagination-list", 1)
+	assertHasHTMLElements(t, doc, ".pagination-item-special", 2)
+	assertHasHTMLElements(t, doc, ".pagination-link", 2+2) // Previous and next + 2 pages (1 and 2)
+	assertHasHTMLElements(t, doc, ".pagination-current", 1)
 }
 
 func Test_RenderNothing(t *testing.T) {
@@ -36,8 +36,8 @@ func Test_RenderNothing(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	assertHasHtmlElements(t, doc, ".pagination-list", 0)
-	assertHasHtmlElements(t, doc, ".pagination-item-special", 0)
-	assertHasHtmlElements(t, doc, ".pagination-link", 0)
-	assertHasHtmlElements(t, doc, ".pagination-current", 0)
+	assertHasHTMLElements(t, doc, ".pagination-list", 0)
+	assertHasHTMLElements(t, doc, ".pagination-item-special", 0)
+	assertHasHTMLElements(t, doc, ".pagination-link", 0)
+	assertHasHTMLElements(t, doc, ".pagination-current", 0)
 }

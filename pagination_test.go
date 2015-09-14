@@ -118,21 +118,21 @@ func Test_IsCurrentPage(t *testing.T) {
 	expected := true
 	got := p.IsCurrentPage(2)
 	if got != expected {
-		t.Errorf("Paginator#IsCurrentPage expected %b, got %b", expected, got)
+		t.Errorf("Paginator#IsCurrentPage expected %v, got %v", expected, got)
 	}
 
 	p = New(10, 3, 1)
 	expected = false
 	got = p.IsCurrentPage(2)
 	if got != expected {
-		t.Errorf("Paginator#IsCurrentPage expected %d, got %d", expected, got)
+		t.Errorf("Paginator#IsCurrentPage expected %v, got %v", expected, got)
 	}
 
 	p = New(10, 3, 1)
 	expected = false
 	got = p.IsCurrentPage(200)
 	if got != expected {
-		t.Errorf("Paginator#IsCurrentPage expected %d, got %d", expected, got)
+		t.Errorf("Paginator#IsCurrentPage expected %v, got %v", expected, got)
 	}
 }
 
@@ -176,13 +176,13 @@ func Test_Show(t *testing.T) {
 	expected := true
 	got := p.Show()
 	if got != expected {
-		t.Errorf("Paginator#Show expected %b, got %b", expected, got)
+		t.Errorf("Paginator#Show expected %v, got %v", expected, got)
 	}
 
 	p = New(10, 25, 1)
 	expected = false
 	got = p.Show()
 	if got != expected {
-		t.Errorf("Paginator#Show expected %d, got %d", expected, got)
+		t.Errorf("Paginator#Show expected %v, got %v", expected, got)
 	}
 }

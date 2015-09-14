@@ -43,7 +43,7 @@ func (h *HTML) Render() template.HTML {
 	t := template.Must(template.New("pagination").Parse(tmpl))
 	err := t.Execute(&out, h)
 	if err != nil {
-		return template.HTML(fmt.Sprintf("Error executing pagination template: %s"))
+		return template.HTML(fmt.Sprintf("Error executing pagination template: %s", err))
 	}
 	return template.HTML(out.String())
 }
